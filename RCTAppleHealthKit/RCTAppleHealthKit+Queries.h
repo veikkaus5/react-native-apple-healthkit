@@ -36,6 +36,7 @@
                                        endDate:(NSDate *)endDate
                                      ascending:(BOOL)asc
                                          limit:(NSUInteger)lim
+																		 predicate:(NSPredicate*)predicate
                                     completion:(void (^)(NSArray *, NSError *))completionHandler;
 
 

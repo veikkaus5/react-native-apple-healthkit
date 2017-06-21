@@ -60,6 +60,7 @@
         callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
         return;
     }
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"metadata.%K != YES", HKMetadataKeyWasUserEntered];
 
     HKQuantityType *stepCountType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
 
@@ -69,6 +70,7 @@
                                          endDate:endDate
                                        ascending:ascending
                                            limit:limit
+																			 predicate:predicate
                                       completion:^(NSArray *arr, NSError *err){
         if (err != nil) {
             NSLog(@"error with fetchCumulativeSumStatisticsCollection: %@", err);

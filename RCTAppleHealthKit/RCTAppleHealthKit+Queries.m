@@ -370,6 +370,7 @@
                                        endDate:(NSDate *)endDate
                                      ascending:(BOOL)asc
                                          limit:(NSUInteger)lim
+																		 predicate:(NSPredicate*)predicate
                                     completion:(void (^)(NSArray *, NSError *))completionHandler {
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -383,7 +384,7 @@
 
     // Create the query
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:quantityType
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:predicate
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:anchorDate
                                                                                 intervalComponents:interval];
